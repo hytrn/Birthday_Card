@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Sam 🎂</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="Birthday_Cake.ico">
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            flex-direction: column;
+            text-align: center;
+            position: relative;
+        }
+        #c {
+            background-color: #ffffff;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        #btn {
+            height: 55px;
+            width: 75px;
+            cursor: pointer;
+            background-color: #ce4f6a00;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease;
+        }
+
+        #btnYes,
+        #btnNo {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #CDC1FF;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1,
+        p {
+            transition: opacity 0.3s ease;
+            font-family: 'Times New Roman', 'Arial', sans-serif;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        #btn img {
+            width: 60px;
+            height: 40px;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
+
+            75% {
+                transform: translateX(-5px);
+            }
+
+            100% {
+                transform: translateX(5px);
+            }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        #btn:hover,
+        #btnYes:hover,
+        #btnNo:hover {
+            background-color: #A294F9;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        #btn:active,
+        #btnYes:active,
+        #btnNo:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .message {
+            display: none;
+            font-size: 20px;
+            margin: 10px;
+            padding: 30px;
+            border: 2px solid #A294F9;
+            border-radius: 8px;
+            background-color: #ffffff;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 90%;
+            overflow: hidden;
+            word-wrap: break-word;
+            transform: perspective(500px) rotateY(10deg);
+            transition: all 0.3s ease-in-out;
+            font-family: "Poppins";
+        }
+
+        .message.show {
+            transform: perspective(500px) rotateY(0deg);
+        }
+
+        .div-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            max-width: 100%;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .message-text {
+            font-size: 18px;
+            display: block;
+            padding: 30px;
+            border: 2px solid #A294F9;
+            border-radius: 10px;
+            background-color: #ffffff;
+            text-align: center;
+            margin-bottom: 30px;
+            transform: perspective(500px) rotateY(10deg);
+            transition: all 0.3s ease-in-out;
+            font-family: "Poppins";
+        }
+
+        .message-text.show {
+            transform: perspective(500px) rotateY(0deg);
+        }
+        #messageTitle {
+            font-family: "Poppins";
+            color: #22177A
+        }
+        #messageText {
+            font-family: "Poppins";
+            color: #605EA1
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c" width="948" height="586"></canvas>
+    <div>
+        <h1 id="messageTitle">You Have A New Mesage</h1>
+        <p id="messageText">View Now</p>
+        <button onclick="playMusic()" id="btn">
+            <img src="./letters.png" alt="Description">
+        </button>
+        <div class="message">My Sam,</div>
+        <div class="message">Hope this message arrives around the time my girl turns 19.</div>
+        <div class="message">Last year, I couldn't congratulate you properly ...</div>
+        <div class="message">So this time, I want to make you something extra special.</div>
+        <div class="message">Happy Birthday! To: </div>
+        <div class="message">My Kitty 🐈</div>
+        <div class="message">My favorite annoyer 🙄</div>
+        <div class="message">Favorite (only) viewer of my cooking show 👨🏻‍🍳</div>
+        <div class="message">My tissue box when I'm sad 🤧</div>
+        <div class="message">My party horn when I'm happy 🎺</div>
+        <div class="message">My telepathy 🏵️</div>
+        <div class="message">My memory 🧠</div>
+        <div class="message">The girl who knows me better than myself</div>
+        <div class="message">Who risks so much for me ...</div>
+        <div class="message">Who can yap with me until 3 a.m. 🤳🏻</div>
+        <div class="message">Who made a playlist about me in July 😛</div>
+        <div class="message">Who "cure" me when I'm sick 😈</div>
+        <div class="message">...</div>
+        <div class="message">You make the stars shine brighter, the days feel lighter, 🌟</div>
+        <div class="message">and my heart overflow with love. 💜</div>
+        <div class="message">You're the limit my heart approaches as time goes to infinity. 💖</div>
+        <div class="message">...</div>
+        <div class="message">P.S. Knowing who I am, I apologize in advance the stupid things I did</div>
+        <div class="message">that annoys you today, tomorrow, and the rest of our lives.</div>
+        <div class="message">On the bright side, at least I'm not 4 months late.</div>
+
+        <div id="msgYes" class="message-text" style="display: none;">Let's make this year even better than the last—starting with today? 🙈</div>
+
+        <div class="div-buttons">
+            <button id="btnYes" style="display: none;">Yes, Hy</button>
+            <button id="btnNo" style="display: none;">Let me think</button>
+        </div>
+    </div>
+    <audio id="background-music" src="Somi_Birthday.mp3" loop autoplay></audio>
+    <script src="./script.js"></script>
+
+</body>
+
+</html>
